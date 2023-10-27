@@ -21,8 +21,10 @@ RUN pip install -U openmim &&\
     pip install mmaction2 &&\
     pip install flask flask_cors flask_restful
 
-COPY . .
+RUN pip install pandas openpyxl
 
-RUN mim download mmaction2 --config tsn_imagenet-pretrained-r50_8xb32-1x1x8-100e_kinetics400-rgb --dest .
+# COPY . .
 
-CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
+# RUN mim download mmaction2 --config tsn_imagenet-pretrained-r50_8xb32-1x1x8-100e_kinetics400-rgb --dest .
+
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
